@@ -1,0 +1,8 @@
+{
+        "name": "RoundCube mobile skin osakana.net version",
+        "author": "OSAKANA TARO",
+        "url": "http://blog.osakana.net/",
+        "license": "GPL",
+        "license-url": "<link to license text>",
+        "extends": "larry"
+}
