@@ -1,0 +1,66 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<meta name="viewport" content="width=device-width; target-densitydpi=device-dpi; initial-scale=1.0; height=device-height">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<div data-role="header">
+<h1><roundcube:label name="mail" /> <roundcube:object name="username" /></h1>
+<div data-role="navbar"><ul>
+<li><roundcube:button command="list" type="link" class="button back disabled" classAct="button back" classSel="button back pressed" label="back" /></li>
+<li><roundcube:object name="messageCountDisplay" class="countdisplay" /></li>
+<li><roundcube:button command="previousmessage" type="link" class="button prevpage disabled" classAct="button prevpage" classSel="button prevpage pressed" innerClass="inner" title="previousmessage" content="&amp;lt;" /></li>
+<li><roundcube:button command="nextmessage" type="link" class="button nextpage disabled" classAct="button nextpage" classSel="button nextpage pressed" innerClass="inner" title="nextmessage" content="&amp;gt;" /></li>
+</ul></div>
+</div>
+
+
+<div id="messageheader">
+<span class="moreheaderstoggle"></span>
+
+<h2 class="subject"><roundcube:object name="messageHeaders" valueOf="subject" /></h2>
+<div class="message-headers">
+<roundcube:object name="messageHeaders" class="headers-table" addicon="/images/addcontact.png" exclude="subject" max="20" />
+</div>
+<roundcube:object name="messageFullHeaders" id="full-headers" />
+
+<!-- record navigation -->
+
+<roundcube:if condition="env:optional_format=='text'" />
+<div class="pagenav" id="formatcontrols">
+	<span class="buttongroup">
+		<roundcube:button command="change-format" prop="html" type="link" class="button first changeformat html selected" innerClass="inner" title="changeformathtml" /><roundcube:button command="change-format" prop="text" type="link" class="button last changeformat text" classSel="button last changeformat text pressed" innerClass="inner" title="changeformattext" />
+	</span>
+</div>
+<roundcube:elseif condition="env:optional_format=='html'" />
+<div class="pagenav" id="formatcontrols">
+	<span class="buttongroup">
+		<roundcube:button command="change-format" prop="html" type="link" class="button first changeformat html" classSel="button first changeformat html pressed" innerClass="inner" title="changeformathtml" /><roundcube:button command="change-format" prop="text" type="link" class="button last changeformat text selected" innerClass="inner" title="changeformattext" />
+	</span>
+</div>
+<roundcube:endif />
+
+
+<div id="contactphoto"><roundcube:object name="contactphoto" /></div>
+</div>
+
+<div id="messagecontent">
+<div class="rightcol">
+<roundcube:object name="messageAttachments" id="attachment-list" class="attachmentslist" />
+</div>
+<div class="leftcol">
+<roundcube:object name="messageObjects" id="message-objects" />
+<roundcube:object name="messageBody" id="messagebody" headertableclass="message-partheaders headers-table" />
+</div>
+</div>
+
+
+</body>
+</html>
