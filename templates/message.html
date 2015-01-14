@@ -11,10 +11,10 @@
 <div data-role="header">
 <h1><roundcube:label name="mail" /> <roundcube:object name="username" /></h1>
 <div data-role="navbar"><ul>
-<li><roundcube:button command="list" type="link" class="button back disabled" classAct="button back" classSel="button back pressed" label="back" /></li>
+<li><roundcube:button command="list" type="link" label="backtolist" /></li>
+<li><roundcube:button command="previousmessage" type="link" content="&lt;&lt;" /></li>
 <li><roundcube:object name="messageCountDisplay" class="countdisplay" /></li>
-<li><roundcube:button command="previousmessage" type="link" class="button prevpage disabled" classAct="button prevpage" classSel="button prevpage pressed" innerClass="inner" title="previousmessage" content="&amp;lt;" /></li>
-<li><roundcube:button command="nextmessage" type="link" class="button nextpage disabled" classAct="button nextpage" classSel="button nextpage pressed" innerClass="inner" title="nextmessage" content="&amp;gt;" /></li>
+<li><roundcube:button command="nextmessage" type="link" content="&gt;&gt;" /></li>
 </ul></div>
 </div>
 
@@ -69,11 +69,13 @@
 <!-- attach ment file end -->
 
 <div data-role="footer">
-<roundcube:button command="reply" type="link" label="reply" />
-<roundcube:button command="reply-all" type="link" label="replyall" />
-<roundcube:button command="forward" type="link" label="forward" />
-<roundcube:button command="delete" type="link" label="delete" />
-
+<div data-role="navbar"><ul>
+<li><roundcube:button command="list" type="link" label="backtolist" /></li>
+<li><roundcube:button command="reply" type="link" label="reply" /></li>
+<li><roundcube:button command="reply-all" type="link" label="replyall" /></li>
+<li><roundcube:button command="forward" type="link" label="forward" /></li>
+<li><roundcube:button command="delete" type="link" label="delete" /></li>
+</ul></div><!-- data-role="navbar" end -->
 </div><!-- data-role="footer" end -->
 
 </body>
